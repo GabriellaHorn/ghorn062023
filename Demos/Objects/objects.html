@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <style></style>
+</head>
+<body>
+    <h1>Objects</h1>
+
+    <script>
+        // Window Object
+        // All Objects Have Properties
+        // All Objects Have Methods
+        /* 
+        window.document.write(window.innerWidth);
+        window.alert("window.alert() is a method."); 
+        */
+
+        // Create Variable
+        const dog = {
+            name: "Butters",
+            age: 10,
+            weight: 30,
+            happy: false,
+            bark: function() {
+                return 'bark!!!';
+            },
+            dig: function() {
+                return 'dig!!!';
+            },
+            growl: function() {
+                return 'grrr!!!';
+            },
+        };
+
+        // Examine The Dog Object
+        window.document.write(dog.name + '<br>');
+        window.document.write(dog.age + '<br>');
+        window.document.write(dog.weight + '<br>');
+        window.document.write(dog.bark() + '<br>');
+        window.document.write(dog.dig() + '<br>');
+        window.document.write(dog.growl() + '<br>');
+    </script>
+</body>
+</html>

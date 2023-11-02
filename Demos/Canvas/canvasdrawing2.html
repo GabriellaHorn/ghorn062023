@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Drawing Complex</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+        }
+        #canvas {
+            margin: auto;
+            display: block;
+            border: 1px solid silver;
+        }
+    </style>
+</head>
+<body>
+    <h1>Canvas Drawing</h1>
+
+    <canvas id="canvas" width="1000px" height="500px"></canvas>
+
+    <script>
+        // Create Variables
+        const canvas = window.document.querySelector('#canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Recolor The Canvas
+        canvas.style.backgroundColor = "#0E1319";
+
+        // Call The Function
+        drawWitch();
+
+        // Create Function To Draw The Witch
+        function drawWitch() {
+            // Draw The Witch
+            ctx.fillStyle = "#E1C7C0";
+            ctx.fillRect(420, 230, 150, 250 -50);
+
+            // Draw The Head
+            ctx.beginPath();
+            ctx.moveTo();
+            ctx.lineTo();
+            ctx.lineTo();
+
+            // Draw The Head
+            ctx.fillStyle = 'blue';
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 10;
+            ctx.arc(100, 100, 90, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+        }
+    </script>
+</body>
+</html>
