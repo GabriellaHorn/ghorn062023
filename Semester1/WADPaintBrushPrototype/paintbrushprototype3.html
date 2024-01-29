@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paint Brush version 1</title>
+    <style>
+        /* :root { 
+            --default-canvas-color: coral;
+            --default-brush-color: lightgreen;
+        } */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #menu {
+            background-color: silver;
+            height: 60px;
+            border: 2px solid #333;
+            position: fixed;
+            width: 100%;
+            padding: 1rem;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <section id="menu">
+        <input type="color" id="colorpicker" value="#FF0000"/>
+        <input type="range" id="rangepicker" min="2" max="100" value="15"/>
+    </section>
+    
+    <script>
+        // Canvas JavaScript Variables
+        let canvasColor = '#ffffff';
+        let brushColor = 'red';
+        let painting = false;
+        let brushSize = 15;
+
+        // Create & Assign Canvas Variable
+        const canvas = window.document.querySelector('#canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Change Line Cap
+        ctx.lineCap = 'round';
+
+        // Set Canvas Color
+        // canvas.style.backgroundColor = 'lightblue';
+        // canvas.style.backgroundColor = getComputedStyle(canvas).getPropertyValue('--default-canvas-color');
+
+        // Colorpicker Variable
+        const colorPicker = window.document.querySelector('#colorpicker');
+        const rangePicker = window.document.querySelector('#rangepicker');
+
+
+        // Add Event Listener To Color Picker
+        colorPicker.addEventListener('input', function() 
+        {
+            // Change CSS Variable
+            // ctx.fillStyle = document.documentElement.style.setProperty('--default-brush-color', colorPicker.value);
+            brushColor = e.target.value;
+        });
+
+        rangePicker.addEventListener('input', function(e)
+        {
+            brushSize = e.target.value;
+        });
+
+        // Set Default Canvas Size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Set Canvas Color
+        canvas.style.backgroundColor = canvasColor;
+
+        // Create Mouse Object
+        const mouse = {
+            x:undefined,
+            y:undefined,
+        };
+
+        // Add An Event Listener
+        canvas.addEventListener('click', function(event) 
+        {
+            // console.log(event);
+            mouse.x = event.x;
+            mouse.y = event.y;
+
+            // alert(mouse.x + ' | ' + mouse.y);
+
+            draw();
+        });
+
+        // Call Draw Function
+        // draw();
+
+        // Handle Resizing Browser Window
+        window.addEventListener('resize', function() {
+            // Reset Canvas Size
+                // Set Default Canvas Size
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+        });
+
+        function draw() {
+            // Draw A Circle
+            ctx.beginPath();
+            ctx.fillStyle = getComputedStyle(canvas).getPropertyValue('--favorite-color');
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 2;
+            ctx.arc(mouse.x, mouse.y, 30, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+        };
+
+        // Create Vairbale To See If We're Painting
+        // let painting;
+        // Boolean Value Can Only Be True Or False
+        painting = false;
+
+        // Add Event Listener To Color Picker
+        colorPicker.addEventListener('input', function() 
+        {
+            // Change CSS Variable
+            // ctx.fillStyle = document.documentElement.style.setProperty('--default-brush-color', colorPicker.value);
+
+            brushColor = e.target.value;
+        });
+
+        // Add Several Event Listeners To The Canvas
+        canvas.addEventListener('mousedown', function(e)
+        {
+            painting = true;
+            // Begin Line
+            ctxmoveTo(mouse.x, mouse.y);
+
+            draw();
+        });
+        canvas.addEventListener('mousemove', function(e)
+        {
+            mouse.x = e.x
+            mouse.y = e.y;
+            draw();
+
+        });
+        canvas.addEventListener('mouseup', function(e)
+        {
+            painting = false;
+            ctx.beginPath();ß
+        })
+
+        // Create Name Function To Draw
+        function draw() {
+            // console.log('now drawing');
+            
+            if(painting == true) {
+                // ctx.beginPath();
+                // ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--default-brush-color');
+                ctx.strokeStyle = brushColor;
+                ctx.lineWidth = brushSize;
+                // ctx.arc(mouse.x, mouse.y, brushSize, 0, Math.PI * 2);
+                ctx.lineTo(mouse.x, mouse.y);
+                ctx.stroke();
+            }
+        };
+
+        window.addEventListener('resize', function()
+        {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        </script>
+</body>
+</html>

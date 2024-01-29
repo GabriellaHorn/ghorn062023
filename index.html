@@ -8,9 +8,11 @@
     <style>
         /* Set Page Colors With Variables */
         :root{
-            --color-primary:#AF946D; 
-            --color-secondary: #745531, #19120A;
-        }
+            /* --color-primary:#AF946D; 
+            --color-secondary: #745531, #19120A; */
+            /* background-image: ; */
+            background-color: #D9C1A4;
+        } 
 
         /* .header{
             background-color: var(--color-secondary);
@@ -34,8 +36,8 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             line-height: 1.5;
-            background-color: #F8FAFC;
-            color: #333;
+            background-color: #A17550;
+            color: #D9C1A4;
         }
 
         a {
@@ -67,7 +69,7 @@
 
         /* Header */
         .header {
-            background-color: #AF946D;
+            background-color: #D9C1A4;
             height: 70px;
         }
 
@@ -104,18 +106,22 @@
         }
 
         .menu li a {
-            color: #000000;
+            color: #A17550;
+        }
+
+        .menu li a:hover {
+            color: white;
         }
 
         /* Showcase */
         .showcase {
-            background-color: #EDE1D2;
+            background-color: #D9C1A4;
             padding: 30px;
             background-image: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
         }
 
         #showcase-text {
-            color: #fff;
+            color: #A17550;
             text-align: center;
             margin: 50px auto;
             max-width: 500px;
@@ -141,7 +147,7 @@
         }
 
         .showcase-demo {
-            color: #fff;
+            color: #A17550;
             text-align: center;
         }
 
@@ -152,15 +158,17 @@
             gap: 1rem;
             justify-content: space-between;
             flex-direction: column;
+            margin-top: 1.5rem;
         }
 
         /* Cards */
         .card {
-            background-color: #FFF;
+            background-color: #D9C1A4;
             padding: 20px;
-            box-shadow: 0 0 10px silver;
+            box-shadow: 0 0 10px #333;
             margin-bottom: 20px;
             flex-basis: 28%;
+            color: #A17550;
         }
 
         /* Page Content */
@@ -199,8 +207,9 @@
 
         /* Footer Section */
         .footer {
-            background-color: var(--color-primary);
-            color: #fff;
+            /* background-color: var(--color-primary); */
+            background-color: #D9C1A4;
+            color: #A17550;
             text-align: center;
             padding: 20px;
             margin-top: 60px;
@@ -213,11 +222,12 @@
         }
 
         .footer a {
-            color: #fff;
+            color: #A17550;
         }
 
         .footer a:hover {
-            color: var(--color-secondary);
+            /* color: var(--color-secondary); */
+            color: #fff;
         }
 
         .footer h3 {
@@ -265,7 +275,7 @@
         <!-- Add Container For Sizing -->
     <div id="container">
             <div class="logo">
-                <a href="index.html"><img src="Images/indexxlogo.png" alt="logo"/></a>
+                <a href="index.html"><img src="Images/gabriella-horn-high-resolution-logo-transparent.png" alt="logo"/></a>
             </div>
     
             <nav>
@@ -327,7 +337,7 @@
     <section class="page-content">
         <div class="container">
             <h2>Introduction</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos pariatur ducimus aliquid quisquam. Veniam aut fugiat modi libero accusamus, blanditiis qui cumque placeat, beatae nihil similique fugit optio. Nostrum, quibusdam?</p>
+            <p>Hi there! My name is Gabby and this is my page.</p>
     
             <h3>Career</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione possimus a maiores atque esse laboriosam facilis corrupti eos suscipit ex ullam perspiciatis veritatis nostrum soluta deserunt, commodi neque modi dolorem!</p>
@@ -346,10 +356,42 @@
         <div class="container">
             <h2>Key Assignments</h2>
             <h3>Semester 1</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipsicing elit. Necessitatibus, qui.</p>
+            <h4>Key Assignments:</h4>
+            <ul>
+                <li><a href="Semester1/Arrays/arrays.html">ArraysReview</a></li>
+                <li><a href="Semester1/Arrays/arraysreviewforeach.html">ArraysReviewforEach</a></li>
+                <li><a href="Semester1/Canvas/canvas.html">Canvas001</a></li>
+                <li><a href="Semester1/Canvas/canvas2.html">Canvas002</a></li>
+                <li><a href="Semester1/Canvas/canvasdrawing1.html">CanvasDrawingSimple</a></li>
+                <li><a href="Semester1/Canvas/canvasdrawing2.html">CanvasDrawingComplex</a></li>
+                <li><a href="Semester1/CanvasMenu/canvasmenu.html">CanvasMenu</a></li>
+                <li><a href="Semester1/Flexbox001/flexbox001.html">Flexbox001</a></li>
+                <li><a href="Semester1/Functions/functions.html">Functions</a></li>
+                <li><a href="Semester1/Markdown/markdown001.md">Markdown001</a></li>
+                <li><a href="Semester1/Markdown/markdown002.md">Markdown002</a></li>
+                <li><a href="Semester1/Markdown/markdown003.md">Markdown003</a></li>
+                <li><a href="Semester1/Markdown/markdown004.md">Markdown004</a></li>
+                <li><a href="Semester1/Markdown/markdown005.md">Markdown005</a></li>
+                <li><a href="Semester1/Markdown/markdown006.md">Markdown006</a></li>
+                <li><a href="Semester1/Markdown/markdown007.md">Markdown007</a></li>
+                <li><a href="Semester1/Objects/objects.html">Objects</a></li>
+                <li><a href="Semester1/WADPaintBrushPrototype/paintbrushprototype1.html">PaintBrushPrototype001</a></li>
+                <li><a href="Semester1/WADPaintBrushPrototype/paintbrushprototype2.html">PaintBrushPrototype002</a></li>
+                <li><a href="Semester1/WADPaintBrushPrototype/paintbrushprototype3.html">PaintBrushPrototype003</a></li>
+                <li><a href="Semester1/WADPaintBrushPrototype/paintbrushprototype4.html">PaintBrushPrototype004</a></li>
+                <li><a href="Semester1/WADPaintBrushPrototype/paintbrushprototype5.html">PaintBrushPrototype005</a></li>
+
+            </ul>
     
             <h3>Semester 2</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipsicing elit. Necessitatibus, qui.</p>
+            <h4>Key Assignments:</h4>
+            <ul>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+            </ul>
         </div>
     </section>
     <!-- End Semester Section -->
@@ -360,9 +402,9 @@
             <div class="quote">
                 <h3>Final Thoughts</h3>
                 <blockquote>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    "She lives the poetry she cannot write."
                 </blockquote>
-                <p>- anonymous</p>
+                <p>- Oscar Wilde</p>
             </div>
     
             <div class="footerlinks">

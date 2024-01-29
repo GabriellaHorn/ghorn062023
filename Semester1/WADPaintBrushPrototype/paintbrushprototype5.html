@@ -23,6 +23,23 @@
         }
         #menu {
             background-color: silver;
+            height: 60px;
+            border: 2px solid #333;
+            position: fixed;
+            width: 100%;
+            padding: 1rem;
+            bottom: 0;
+        }
+        #buttonholder {
+            width: 150px;
+            margin: auto;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+        }
+        button {
+            margin: 0.5rem;
+            padding: 0.5rem;
         }
     </style>
 </head>
@@ -30,8 +47,13 @@
     <canvas id="canvas"></canvas>
 
     <section id="menu">
-        <input type="color" id="colorpicker" value="#FF0000">
+        <input type="color" id="colorpicker" value="#FF0000"/>
+        <input type="range" id="rangepicker" min="2" max="100" value="15"/>
     </section>
+
+    <div id="buttonholder">
+        <button id="createrectangle">Create Rectangle</button>
+    </div>
     
     <script>
         // Canvas JavaScript Variables
@@ -44,12 +66,30 @@
         const canvas = window.document.querySelector('#canvas');
         const ctx = canvas.getContext('2d');
 
+        // Change Line Cap
+        ctx.lineCap = 'round';
+
         // Set Canvas Color
         // canvas.style.backgroundColor = 'lightblue';
         // canvas.style.backgroundColor = getComputedStyle(canvas).getPropertyValue('--default-canvas-color');
 
         // Colorpicker Variable
         const colorPicker = window.document.querySelector('#colorpicker');
+        const rangePicker = window.document.querySelector('#rangepicker');
+
+
+        // Add Event Listener To Color Picker
+        colorPicker.addEventListener('input', function() 
+        {
+            // Change CSS Variable
+            // ctx.fillStyle = document.documentElement.style.setProperty('--default-brush-color', colorPicker.value);
+            brushColor = e.target.value;
+        });
+
+        rangePicker.addEventListener('input', function(e)
+        {
+            brushSize = e.target.value;
+        });
 
         // Set Default Canvas Size
         canvas.width = window.innerWidth;
@@ -116,6 +156,9 @@
         canvas.addEventListener('mousedown', function(e)
         {
             painting = true;
+            // Begin Line
+            ctxmoveTo(mouse.x, mouse.y);
+
             draw();
         });
         canvas.addEventListener('mousemove', function(e)
@@ -128,18 +171,22 @@
         canvas.addEventListener('mouseup', function(e)
         {
             painting = false;
-        });
+            ctx.beginPath();ß
+        })
 
         // Create Name Function To Draw
         function draw() {
             // console.log('now drawing');
             
             if(painting == true) {
-                ctx.beginPath();
+                // ctx.beginPath();
                 // ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--default-brush-color');
-                ctx.fillStyle = brushColor;
-                ctx.arc(mouse.x, mouse.y, 30, 0, Math.PI * 2);
-                ctx.fill();
+                ctx.strokeStyle = brushColor;
+                ctx.lineWidth = brushSize;
+                ctx.lineJopin = "round";
+                // ctx.arc(mouse.x, mouse.y, brushSize, 0, Math.PI * 2);
+                ctx.lineTo(mouse.x, mouse.y);
+                ctx.stroke();
             }
         };
 
@@ -147,6 +194,21 @@
         {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+        });
+
+        // Create Variable For Button
+        const btnCreateRectangle = window.document.querySelector('#createrectangle');
+
+        // Add Button Event Listener
+        btnCreateRectangle.addEventListener('click', function(){
+            // window.alert("btnCreateRectangle")
+
+            // Define Rectangle Properties
+            // ctx.strokeStyle = 'white';
+            ctx.lineWidth = 10;
+            ctx.fillStyle = "red";
+            ctx.fillRect(0, 0, 200, 200);
+            // ctx.strokeRect(10, 30, 200, 100);
         });
         </script>
 </body>
